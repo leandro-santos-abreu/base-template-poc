@@ -1,0 +1,22 @@
+﻿services:
+  basetemplatepoc:
+    image: basetemplatepoc
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: BasetTemplatePoc
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_URLS=http://*:8080
+      - ConnectionStrings_DbConnectionString=Server=basetemplatepoc.database,1433;Database=master;User Id=sa;Password=Poc_user;TrustServerCertificate=True
+  basetemplatepoc.database:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: BasetTemplatePoc.Database
+    environment:
+      - MSSQL_SA_PASSWORD=Poc_user
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Developer
+      - MSSQL_TCP_PORT=1433
+    ports:
+      - "1433:1433"

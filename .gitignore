@@ -23,6 +23,17 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
+# JetBrains IDEs - all .idea folders
+.idea/
+**/.idea/
+*/.idea/
+
+# Specific JetBrains files
+*.iml
+*.ipr
+*.iws
+.idea_modules/
+
 # .NET Core
 project.lock.json
 project.fragment.lock.json
